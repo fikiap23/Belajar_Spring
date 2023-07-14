@@ -12,9 +12,10 @@ public class BookServiceImpl implements BookService{
 	
 	private BookRepository bookRepository;
 
-	public BookServiceImpl() {
-		Author author = new Author();
-		book = new Book(author);
+	
+	public BookServiceImpl(BookRepository bookRepository) {
+		super();
+		this.bookRepository = bookRepository;
 	}
 
 	@Override
@@ -28,13 +29,14 @@ public class BookServiceImpl implements BookService{
 		return dto;
 	}
 
-	public BookRepository getBookRepository() {
-		return bookRepository;
-	}
-
-	public void setBookRepository(BookRepository bookRepository) {
-		this.bookRepository = bookRepository;
-	}
+	
+//	public BookRepository getBookRepository() {
+//		return bookRepository;
+//	}
+//
+//	public void setBookRepository(BookRepository bookRepository) {
+//		this.bookRepository = bookRepository;
+//	}
 	
 	
 	
