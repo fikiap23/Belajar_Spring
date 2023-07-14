@@ -16,8 +16,16 @@ public class Book implements Serializable {
 	private String description;
 	
 	private Author author;
+	
+	
 
 	
+	public Book() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Book(Author author) {
 		super();
 		this.author = author;
