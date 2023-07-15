@@ -1,6 +1,8 @@
 package com.subrutin;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.subrutin.domain.Author;
 import com.subrutin.dto.BookDetailDTO;
@@ -15,14 +17,11 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-//        Author author = new Author();
-        ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("application-context.xml");
-        BookService bookService = (BookService) appContext.getBean("bookService");
-        BookDetailDTO bookDetailDTO =  bookService.findBookDetailById(2L);
-        System.out.println("book detail ="+bookDetailDTO);
+//        ApplicationContext appCtx = new ClassPathXmlApplicationContext("application-context.xml");
+        ApplicationContext appCtx = new FileSystemXmlApplicationContext("D:\\spring_boot\\book-catalog\\src\\main\\resources\\application-context.xml");
+        BookService bs = (BookService) appCtx.getBean("bookService");
+        BookDetailDTO dto = bs.findBookDetailById(1L);
+        System.out.println("Book Detail: "+dto);
         
-//       Author author= (Author) appContext.getBean("author");
-//       System.out.println("Author: "+author);
-
     }
 }
