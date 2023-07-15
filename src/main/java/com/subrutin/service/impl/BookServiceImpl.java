@@ -1,18 +1,22 @@
 package com.subrutin.service.impl;
 
-import com.subrutin.domain.Author;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+
 import com.subrutin.domain.Book;
 import com.subrutin.dto.BookDetailDTO;
 import com.subrutin.repository.BookRepository;
 import com.subrutin.service.BookService;
 
+@Service("bookService")
 public class BookServiceImpl implements BookService{
 
-	private Book book;
-	
 	private BookRepository bookRepository;
 
 	
+	@Autowired
 	public BookServiceImpl(BookRepository bookRepository) {
 		super();
 		this.bookRepository = bookRepository;
@@ -29,14 +33,6 @@ public class BookServiceImpl implements BookService{
 		return dto;
 	}
 
-	
-//	public BookRepository getBookRepository() {
-//		return bookRepository;
-//	}
-//
-//	public void setBookRepository(BookRepository bookRepository) {
-//		this.bookRepository = bookRepository;
-//	}
 	
 	
 	
